@@ -1,0 +1,7 @@
+DJANGO_SECRET_KEY=your-long-random-secret-key-here
+DEBUG=True
+MONGO_URI=mongodb://localhost:27017
+MONGO_DB_NAME=egovern_db
+GOOGLE_CLIENT_ID=your-google-client-id.apps.googleusercontent.com
+GOOGLE_CLIENT_SECRET=your-google-client-secret
+DEFAULT_FROM_EMAIL=noreply@nationserve.in
