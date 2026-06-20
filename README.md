@@ -21,41 +21,13 @@ Citizens can digitally submit service requests with multi-part supporting docume
 
 
 
-**System Topology & Workspace Mapping**
-E-Governance-Service-Portal/
-│
-├── egov/                           # Central Project Settings & Gateways
-│   ├── settings.py                 # DB configurations, JWT lifetimes, OAuth targets
-│   └── urls.py                     # Primary routing path multiplexer
-│
-├── users/                          # Identity Engine: Profiles, custom roles, & social auth callbacks
-├── applications/                   # Core Engine: Multipart document streaming & service records
-├── notifications/                  # Alerts Engine: Async database signals & email loop dispatches
-│
-├── frontend/                       # React 18 + Vite Single-Page Application (SPA)
-│   ├── src/
-│   │   ├── pages/                  # Layout Components & Modular Workspaces
-│   │   │   ├── Login.jsx           # SSO Portal link-out & responsive sandbox staging roles
-│   │   │   ├── Dashboard.jsx       # Global application sidebar navigation & status toast hub
-│   │   │   ├── ServiceForm.jsx     # Citizen application intake handler with file stream targets
-│   │   │   ├── ApplicationsList.jsx# Chronological ledger tracking citizen requests
-│   │   │   ├── OfficerPanel.jsx    # Review dashboard displaying remarks and terminal approval triggers
-│   │   │   └── AdminPanel.jsx      # Metrics tracking cards & dynamic role mutation matrix
-│   │   │
-│   │   ├── App.jsx                 # Client entry script, authentication guard, & query token cleanups
-│   │   ├── main.jsx                # Virtual DOM root mounter
-│   │   └── Index.css               # Production tokens, fluid typography, and dark-theme variables
-│   └── package.json
-│
-├── .env                            # Consolidated environmental parameter vault
-└── manage.py                       # Django command-line execution manager
-
-
-
 **API Endpoint Reference Matrix**
 All secured backend endpoints demand a valid stateless authorization header signature:
 Format: Authorization: Bearer <your_jwt_access_token>
-📄 Service Applications Core Subsystem (/api/applications/)
+
+
+
+**Service Applications Core Subsystem (/api/applications/)**
 Method	Absolute Path	Guard Constraints	Purpose / Data Flow
 POST	/api/applications/	Citizen	Accepts multipart forms to link text files and upload physical attachments (FileField).
 GET	/api/applications/mine/	Citizen	Pulls records generated explicitly by the executing token bearer, ordered by created_at.
